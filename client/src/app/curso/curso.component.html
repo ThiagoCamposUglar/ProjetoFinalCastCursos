@@ -1,3 +1,21 @@
-<div *ngIf="accountService.currentUser$ | async" class="container" style="margin-top: 100px;">
-  <p>curso works!</p>
+<div *ngIf="accountService.currentUser$ | async" class="container" style="margin-top: 70px;">
+  <h1>Cursos</h1>
+  <input type="text" class="sm-4" placeholder="Buscar" [(ngModel)]="filtroLista" style="margin-bottom: 10px;">
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let course of courses" style="margin-bottom: 15px;">
+      <div class="card">
+        <div class="card-body">
+          <h5>{{course.description}}</h5>
+          <p>Data de início: {{course.startDate | date: 'dd-MM-yyyy'}}</p>
+          <p>Data de término: {{course.endDate | date: 'dd-MM-yyyy'}}</p>
+          <p>Alunos por turma: {{course.studentsQuantity}}</p>
+          <p><strong>Categoria: </strong></p>
+          <div class="btn-group">
+            <button class="btn btn-primary" style="margin-right: 10px;">Editar</button>
+            <button class="btn btn-danger">Excluir</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
