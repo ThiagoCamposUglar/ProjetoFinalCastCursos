@@ -74,6 +74,11 @@ namespace API.Controllers
                 return BadRequest();
             }
 
+            if(course.EndDate < course.StartDate)
+            {
+                return BadRequest("A data de início deve ser menor que a data de término.");
+            }
+
             _context.Entry(course).State = EntityState.Modified;
 
             try

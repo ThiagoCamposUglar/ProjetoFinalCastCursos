@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container">
-    <img src="assets/cast-logo.png" style="width: 69px; height: 32px; margin-right: 30px;">
+    <a routerLink="home"><img src="assets/cast-logo.png" style="width: 69px; height: 32px; margin-right: 30px;"></a>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" routerLink="home">Home</a>
@@ -15,7 +15,7 @@
           <div class="dropdown-menu mt-3" *dropdownMenu>
             <p class="container">{{currentUser.employeeName}}</p>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" (click)="logout()">Logout</a>
+            <a class="dropdown-item" [routerLink]="['/home']" routerLinkActive="router-link-active"  (click)="logout()">Logout</a>
           </div>
       </div>
 

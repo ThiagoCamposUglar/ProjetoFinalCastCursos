@@ -106,7 +106,7 @@ export class CursoComponent implements OnInit {
       startDate:['', Validators.required],
       endDate:['', Validators.required],
       studentsQuantity:[],
-      categoryId:[]
+      courseCategoryId:[]
     })
   }
 
@@ -142,6 +142,6 @@ export class CursoComponent implements OnInit {
     filterBy = filterBy.toLocaleLowerCase();
     return this.courses.filter((course: {courseName: string; startDate: Date; endDate: Date}) => course.courseName.toLocaleLowerCase().indexOf(filterBy) !== -1 ||
     datepipe.transform(course.startDate, 'dd/MM/yyyy').toLocaleString().indexOf(filterBy) !== -1 ||
-    course.endDate.toLocaleString().indexOf(filterBy) !== -1);
+    datepipe.transform(course.endDate, 'dd/MM/yyyy').toLocaleString().indexOf(filterBy) !== -1);
   }
 }
