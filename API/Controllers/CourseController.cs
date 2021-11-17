@@ -40,19 +40,28 @@ namespace API.Controllers
             {
                 return BadRequest("Existe(m) curso(s) planejados(s) dentro do período informado.");
             }
-            _context.Courses.Add(course);
-            await _context.SaveChangesAsync();
 
-            CourseLog log = new CourseLog
+            try
             {
-                InclusionDate = DateTime.Now,
-                LastUpdateDate = DateTime.Now,
-                CourseId = course.Id,
-                EmployeeId = id
-            };
+                _context.Courses.Add(course);
+                await _context.SaveChangesAsync();
 
-            _context.CourseLogs.Add(log);
-            await _context.SaveChangesAsync();
+                CourseLog log = new CourseLog
+                {
+                    InclusionDate = DateTime.Now,
+                    LastUpdateDate = DateTime.Now,
+                    CourseId = course.Id,
+                    EmployeeId = id
+                };
+
+                _context.CourseLogs.Add(log);
+                await _context.SaveChangesAsync();
+            }
+            catch (System.Exception)
+            {  
+                throw;
+            }
+
 
             return Ok("Curso cadastrado com sucesso");
         }
@@ -128,7 +137,6 @@ namespace API.Controllers
 
             return Ok("Curso excluído com sucesso");
         }
-
 
         public bool CourseExistsInTS(Course course)
         {

@@ -9,17 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
   model: any = {};
+  errorMessage: any;
 
   constructor(public accountService: AccountService) { }
+  currentUser: any;
+
 
   ngOnInit(): void {
+    this.accountService.currentUser$.subscribe(user => this.currentUser = user);
   }
 
   login(){
+    this.errorMessage = "";
     this.accountService.login(this.model).subscribe(response => {
-      console.log(response)
+      console.log(response);
     }, error => {
       console.log(error)
+      this.errorMessage = error;
+      window.alert(this.errorMessage.error);
     });
   }
 

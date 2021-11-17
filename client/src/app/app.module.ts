@@ -12,6 +12,7 @@ import { CursoComponent } from './curso/curso.component';
 import { HomeComponent } from './home/home.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 const maskConfig: Partial<IConfig> = {
   validation: false
@@ -33,7 +34,8 @@ const maskConfig: Partial<IConfig> = {
     BsDropdownModule.forRoot(),
     ReactiveFormsModule,
     ModalModule.forRoot(),
-    NgxMaskModule.forRoot(maskConfig)
+    NgxMaskModule.forRoot(maskConfig),
+    CarouselModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
