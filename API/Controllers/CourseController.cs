@@ -51,7 +51,8 @@ namespace API.Controllers
                     InclusionDate = DateTime.Now,
                     LastUpdateDate = DateTime.Now,
                     CourseId = course.Id,
-                    EmployeeId = id
+                    EmployeeId = id,
+                    Action = "Inclusão"
                 };
 
                 _context.CourseLogs.Add(log);
@@ -115,7 +116,8 @@ namespace API.Controllers
                 InclusionDate = incDate,
                 LastUpdateDate = DateTime.Now,
                 CourseId = course.Id,
-                EmployeeId = employeeId
+                EmployeeId = employeeId,
+                Action = "Atualização"
             };
 
             _context.CourseLogs.Add(newlog);

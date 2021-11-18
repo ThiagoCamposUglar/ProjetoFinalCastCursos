@@ -116,3 +116,16 @@ GO
 
 COMMIT;
 GO
+
+BEGIN TRANSACTION;
+GO
+
+ALTER TABLE [CourseLogs] ADD [Action] nvarchar(max) NULL;
+GO
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20211118141641_AdicionandoStrigDeAcao', N'5.0.12');
+GO
+
+COMMIT;
+GO

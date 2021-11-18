@@ -10,6 +10,7 @@ namespace API.Entities
         public int Id { get; set; }
         public DateTime InclusionDate { get; set; }
         public DateTime LastUpdateDate { get; set; }
+        public string Action { get; set; }
 
         public int CourseId { get; set; }
         public Course Course { get; set; }

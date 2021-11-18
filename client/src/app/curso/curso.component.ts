@@ -65,6 +65,7 @@ export class CursoComponent implements OnInit {
     this.http.post(`${this.baseUrl}/${this.currentUser.id}`, this.newCourseForm.value, {responseType: 'text'}).subscribe(response => {
       window.alert(response);
       this.modalRef?.hide();
+      this.newCourseForm.reset();
       this.getCourses();
     }, error => {
       console.log(error);
