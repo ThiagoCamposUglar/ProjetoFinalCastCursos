@@ -1,0 +1,6 @@
+Tecnologias utilizadas:
+1 - .NET 5(C#) - WEB API: para conectar com o banco de dados e com o frontend
+2 - Entity framework 5: para criar o banco de dados
+3 - Angular 12: para frontend e conectar na API
+4 - SqlServer
+5 - Bootstrap 4
